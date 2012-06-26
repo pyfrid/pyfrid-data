@@ -20,8 +20,8 @@ from pyfrid.modules.data.core.data import BaseDataModule
 class DataModule(BaseDataModule):
     alias="data"
     
-    fpga_device=use_device("fpga")
-    shutter_device=use_device("shutter")
+    fpga_device=use_device("dummy_fpga")
+    shutter_device=use_device("dummy_shutter")
     noshutter=BoolSetting(False, fixed=False)
     
     def shoot(self, tm):

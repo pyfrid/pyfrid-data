@@ -21,8 +21,8 @@ from pyfrid.webapp.modules.data.plot2d import Plot2DDataWebRouter
 class Plot2DDataModule(BasePlot2DDataModule):
     alias="dataplot2d"
     data_module=use_module("data")
-    def_xdev=use_device("motor1")
-    def_ydev=use_device("psd")
+    def_xdev=use_device("dummy_motor1")
+    def_ydev=use_device("dummy_psd")
     
     webrouter=Plot2DDataWebRouter
     webscript="modules/data/plot2dxy.js"

@@ -5,7 +5,7 @@ from pyfrid.devices.counters.counter import BaseCounterDevice, BaseMonitorDevice
 from pyfrid.core import use_device, BaseDevice
 
 class DummyFpgaDevice(BaseCounterDevice):
-    alias="fpga"
+    alias="dummy_fpga"
     channelsnum=2
     
     def __init__(self, *args, **kwargs):
@@ -45,7 +45,7 @@ class DummyFpgaDevice(BaseCounterDevice):
     
 class TimeDevice(BaseDevice):
     alias="fpga_time"
-    counter_device=use_device("fpga")
+    counter_device=use_device("dummy_fpga")
     
     def position(self):
         return self.counter_device.get_time()
@@ -54,12 +54,12 @@ class TimeDevice(BaseDevice):
 class Monitor1Device(BaseMonitorDevice):
     alias="fpga_monitor1"
     index=0
-    counter_device=use_device("fpga")
+    counter_device=use_device("dummy_fpga")
 
 
 class Monitor2Device(BaseMonitorDevice):
     alias="fpga_monitor2"
     index=1
-    counter_device=use_device("fpga")
+    counter_device=use_device("dummy_fpga")
 
 

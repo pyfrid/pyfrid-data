@@ -6,10 +6,10 @@ from pyfrid.devices.counters.counter import BaseCounterDevice
 from pyfrid.core import use_device
 
 class DummyDetectorDevice(BaseCounterDevice):
-    alias="detector"
+    alias="dummy_detector"
     channelsnum=24
     
-    fpga_device=use_device("fpga")
+    fpga_device=use_device("dummy_fpga")
     
     def start(self, tm=None):
         self.fpga_device.start(tm)

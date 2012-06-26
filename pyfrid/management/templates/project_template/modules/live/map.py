@@ -27,4 +27,4 @@ class LiveMapModule(BaseLiveMapModule):
               "project_static/js/core/data/mapplot.js"
              ]
     
-    detector_device=use_device("psd")
+    detector_device=use_device("dummy_psd")

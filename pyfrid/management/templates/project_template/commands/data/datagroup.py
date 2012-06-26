@@ -18,6 +18,7 @@ from pyfrid.commands.data.datagroup import BaseDataGroupCommand
 
 class DataGroupCommand(BaseDataGroupCommand):
     alias="datagroup"
+    
     webscript="commands/data/datagroup.js"
     
     data_module=use_module("data")

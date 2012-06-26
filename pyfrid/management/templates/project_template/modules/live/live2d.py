@@ -25,5 +25,5 @@ class Live2DModule(BaseLive2DModule):
     webscript="modules/live/live2d.js"
     webbases=["project_static/js/core/baseplot.js"]
     
-    detector_device=use_device("detector")
+    detector_device=use_device("dummy_detector")
     

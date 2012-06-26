@@ -154,11 +154,10 @@ name:   dataname
 active: True
 group:  "Measurement/Dataname"
 
-
 # scan command
 # loop scan
 ---
-alias:  loop
+alias:  scan
 name:   scan
 active: True
 group:  "Measurement/Scan"
@@ -170,5 +169,3 @@ alias:  shoot
 name:   shoot
 active: True
 group:  "Measurement/Scan"
-
-

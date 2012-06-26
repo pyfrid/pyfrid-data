@@ -4,9 +4,9 @@ from pyfrid.core import use_device
 from pyfrid.devices.counters.psd import BasePSDDevice
 
 class DummyPSDDevice(BasePSDDevice):
-    alias="psd"
+    alias="dummy_psd"
     
-    fpga_device=use_device("fpga")
+    fpga_device=use_device("dummy_fpga")
             
     def start(self, tm=None):
         self.fpga_device.start(tm)

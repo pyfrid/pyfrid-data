@@ -48,7 +48,7 @@ group: "Dummy"
 
 # dummy fpga
 ---
-alias: fpga
+alias: dummy_fpga
 name: fpga
 active: True
 group: "Controllers"
@@ -56,7 +56,7 @@ units: "counts"
 
 # dummy detector
 ---
-alias: detector
+alias: dummy_detector
 name: detector
 active: True
 group: "Controllers"
@@ -64,7 +64,7 @@ units: "counts"
 
 # dummy psd
 ---
-alias: psd
+alias: dummy_psd
 name: psd
 active: True
 group: "PSD"

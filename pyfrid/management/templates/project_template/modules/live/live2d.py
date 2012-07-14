@@ -23,7 +23,7 @@ class Live2DModule(BaseLive2DModule):
     alias="live2d"
     webrouter=Live2DModuleWebRouter
     webscript="modules/live/live2d.js"
-    webbases=["project_static/js/core/baseplot.js"]
+    webbases=["project_static/js/core/data/baseplot.js"]
     
     detector_device=use_device("dummy_detector")
     

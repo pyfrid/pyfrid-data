@@ -105,6 +105,7 @@ class BaseAbstractCounterDevice(BaseCachedDevice):
     def call_start(self, tm=None):
         if tm: self.info("Starting counting for {0} seconds...".format(tm))
         else: self.info("Starting counting...".format(tm))
+        self.call_release()
         self.start(tm)
         self.force_update()
         

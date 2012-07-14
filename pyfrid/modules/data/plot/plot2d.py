@@ -35,7 +35,10 @@ class BasePlot2DDataModule(BaseDataHandlerModule, BasePlot2DModule):
         self.set_ydev(self.def_ydev)
     
     def xticks_formatter(self, val, pos=None):
-        return "{0:.4f}".format(self._xdata[int(val)])
+        try:
+            return "{0:.4f}".format(self._xdata[int(val)])
+        except IndexError: # very bad, must be redone
+            return "{0:.4f}".format(self._xdata[-1])
     
     def init_data(self, *args, **kwargs):
         self.init_plot()

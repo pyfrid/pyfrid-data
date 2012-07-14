@@ -144,7 +144,7 @@ class BasePlotModule(BaseModule):
                     self._cache=fh.getvalue()
                     self._id=str(uuid.uuid4())
                 except Exception, err:
-                    self.warning("Warning: {0}".format(err))
+                    self.exception("Exception: {0}".format(err))
                 finally:
                     fh.close()
                 

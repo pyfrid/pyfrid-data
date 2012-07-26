@@ -131,7 +131,7 @@ class BasePlotModule(BaseModule):
                 self._fig.set_size_inches(w,h)
                 self._update_cache()
             except Exception, err:
-                self.warning("Exception: {0}".format(err))
+                self.warning(err)
             return self.get_image(0)
     
     def _update_cache(self):
@@ -144,7 +144,7 @@ class BasePlotModule(BaseModule):
                     self._cache=fh.getvalue()
                     self._id=str(uuid.uuid4())
                 except Exception, err:
-                    self.exception("Exception: {0}".format(err))
+                    self.warning(err)
                 finally:
                     fh.close()
                 

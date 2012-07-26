@@ -23,20 +23,64 @@
 # For more information, see the manual.
 #
 
-# dummy motor1
+# dummy slit1
 ---
-alias: dummy_motor1
-name: motor1
+alias: dummy_slit1_left
+name: slit1_left
 active: True
-group: "Dummy"
+group: "Aperture/Slit1"
 
-# dummy motor2
+# dummy slit1
 ---
-alias: dummy_motor2
-name: motor2
+alias: dummy_slit1_right
+name: slit1_right
 active: True
-group: "Dummy"
+group: "Aperture/Slit1"
 
+
+# dummy slit1
+---
+alias: dummy_slit1_top
+name: slit1_top
+active: True
+group: "Aperture/Slit1"
+
+# dummy slit1
+---
+alias: dummy_slit1_bottom
+name: slit1_bottom
+active: True
+group: "Aperture/Slit1"
+
+
+# dummy slit2
+---
+alias: dummy_slit2_left
+name: slit2_left
+active: True
+group: "Aperture/Slit2"
+
+# dummy slit2
+---
+alias: dummy_slit2_right
+name: slit2_right
+active: True
+group: "Aperture/Slit2"
+
+
+# dummy slit2
+---
+alias: dummy_slit2_top
+name: slit2_top
+active: True
+group: "Aperture/Slit2"
+
+# dummy slit2
+---
+alias: dummy_slit2_bottom
+name: slit2_bottom
+active: True
+group: "Aperture/Slit2"
 
 # dummy shutter
 ---

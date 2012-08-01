@@ -34,7 +34,7 @@ COLORMAPS=sorted(m for m in datad if not m.endswith("_r"))
    
 class BaseMapModule(BasePlotModule):
     
-    cblog=BoolSetting  ( False, fixed=False )
+    cblog=BoolSetting  ( True, fixed=False )
     cbrange=FloatListSetting([None,None], fixed=False, numitems=2, allownone=True)
     
     cbmap=StringSetting("jet", fixed=False, expected=COLORMAPS)
@@ -91,20 +91,17 @@ class BaseMapModule(BasePlotModule):
         dxmax=np.max(data_xint)
         dymax=np.max(data_yint)
         cbmin,cbmax=self.cbrange
-        self._image.set_data(data)
-        self._plotx.set_ydata(data_xint)
-        self._plotx.set_xdata(np.arange(0,xlen))
-        self._ploty.set_xdata(data_yint)
-        self._ploty.set_ydata(np.arange(0,ylen))
         if self.cblog:  
             cbmin=max(data_min, 1e-5) if cbmin==None else max(cbmin, 1e-5)
             cbmax=data_max if cbmax==None else max(cbmax,1e-5)
             self._axintx.set_yscale('symlog', basey=10, subsy=None, nonposy="mask")
             self._axinty.set_xscale('symlog', basex=10, subsx=None, nonposx="mask")
             self._image.set_norm(LogNorm(cbmin,cbmax,clip=True))
-            self._cb.set_norm(LogNorm(cbmin,cbmax,clip=True))
-            self._cb.set_ticks(LogLocator(1000))
-            self._cb.ax.xaxis.set_major_formatter(LogFormatter())
+            try:
+                self._cb.set_norm(LogNorm(cbmin,cbmax,clip=True))
+                self._cb.set_ticks(LogLocator(1000))
+                self._cb.ax.xaxis.set_major_formatter(LogFormatter())
+            except: pass
             self._axintx.yaxis.set_major_locator(LogLocator(1000))
             self._axinty.xaxis.set_major_locator(LogLocator(1000))
         else:
@@ -113,11 +110,18 @@ class BaseMapModule(BasePlotModule):
             self._axintx.set_yscale('linear')
             self._axinty.set_xscale('linear')
             self._image.set_norm(Normalize(cbmin,cbmax,clip=True))
-            self._cb.set_norm(Normalize(cbmin,cbmax,clip=True))
-            self._cb.set_ticks(MaxNLocator(3))
-            self._cb.ax.xaxis.set_major_formatter(ScalarFormatter())
+            try:
+                self._cb.set_ticks(MaxNLocator(3))
+                self._cb.set_norm(Normalize(cbmin,cbmax,clip=True))
+                self._cb.ax.xaxis.set_major_formatter(ScalarFormatter())
+            except: pass
             self._axintx.yaxis.set_major_locator(MaxNLocator(2))
             self._axinty.xaxis.set_major_locator(MaxNLocator(2))
+        self._image.set_data(data)
+        self._plotx.set_ydata(data_xint)
+        self._plotx.set_xdata(np.arange(0,xlen))
+        self._ploty.set_xdata(data_yint)
+        self._ploty.set_ydata(np.arange(0,ylen))
         self._axintx.set_ylim(0,dxmax)
         self._axinty.set_xlim(0,dymax) 
         

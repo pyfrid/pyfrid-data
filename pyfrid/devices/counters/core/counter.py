@@ -94,10 +94,6 @@ class BaseAbstractCounterDevice(BaseCachedDevice):
         super(BaseAbstractCounterDevice, self).initialize()
         self.call_start()
 
-    def release(self):
-        super(BaseAbstractCounterDevice, self).initialize()
-        if self.stopped: self.call_start()
-
     def position(self):
         self._data_handler.set_data(self.read())
         return self._data_handler.sum()

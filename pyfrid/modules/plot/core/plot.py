@@ -92,8 +92,8 @@ class BasePlotModule(BaseModule):
                         if len(self._data)!=len(d):
                             self._data=np.ma.resize(self._data, len(d))
                         self._data.data[:]=np.asarray(d)
-                    self.update_components()
-                    self._update_cache()
+                        self.update_components()
+                        self._update_cache()
                 except Exception, err:
                     self.exception("Exception while updating plot components: {0}".format(err))
             
